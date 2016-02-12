@@ -13,7 +13,7 @@ class UFile{
                 case UPLOAD_ERR_PARTIAL:
                     echo "Файл частично загружен";
                     break;
-                case UPLOAD_ERR_NO_FILE;
+                case UPLOAD_ERR_NO_FILE:
                     echo "Файл не был загружен";
                     break;
                 case UPLOAD_ERR_NO_TMP_DIR:
@@ -29,10 +29,14 @@ class UFile{
         }elseif (($_FILES["userfile"]["type"] !== "image/png") and ($_FILES["userfile"]["type"] !== "image/jpeg")) {
                 echo "Не верный формат загружаемого рисунка";
 
-        }elseif (file_exists($_FILES["userfile"]["tmp_name"])){
-            list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"])
-                if($width > 400 and $height > 400)
-                    echo "Размеры файла больше 400х400 рх";}
+        }elseif ($a = (list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"]))){
+                  switch ($a){
+                        case $width > 150:
+                            echo "Ширина больше 150";break;
+                        case $height > 150:
+                            echo "Высота больше 150";break;
+                    }
+
 
         }else{
             echo "Размер загруженного файла: ".$_FILES["userfile"]["size"]." байт <br>";
