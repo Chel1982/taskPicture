@@ -34,16 +34,14 @@ class UFile{
     }
 
 
-/*}elseif (($_FILES["userfile"]["type"] !== "image/png") and ($_FILES["userfile"]["type"] !== "image/jpeg")) {
-            echo "Не верный формат загружаемого рисунка";*/
-        function errorType(){
+     function errorType(){
             if (($_FILES["userfile"]["type"] !== "image/png") and ($_FILES["userfile"]["type"] !== "image/jpeg")) {
                 echo "Не верный формат загружаемого рисунка";
                 exit;
             }
         }
 
-        function errorWH(){
+     function errorWH(){
             $size = (list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"]));
                 switch ($size) {
                     case $width > 150:
@@ -56,7 +54,7 @@ class UFile{
 
         }
 
-        function createPicture(){
+     function createPicture(){
             echo "Размер загруженного файла: ".$_FILES["userfile"]["size"]." байт <br>";
             echo "Тип загруженного файла: ".$_FILES["userfile"]["type"];
             move_uploaded_file($_FILES["userfile"]["tmp_name"],"C:/img/".$_FILES["userfile"]["name"]);
