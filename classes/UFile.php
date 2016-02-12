@@ -29,8 +29,8 @@ class UFile{
         }elseif (($_FILES["userfile"]["type"] !== "image/png") and ($_FILES["userfile"]["type"] !== "image/jpeg")) {
                 echo "Не верный формат загружаемого рисунка";
 
-        }elseif ($a = (list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"]))){
-                  switch ($a){
+        }elseif ( $size = (list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"]))){
+                switch ($size){
                         case $width > 150:
                             echo "Ширина больше 150";break;
                         case $height > 150:
