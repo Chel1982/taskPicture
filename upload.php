@@ -24,8 +24,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <input type="submit" value="Загрузить">
 </form>
 <?php
-$picture = new UFile1();
-$picture ->ErrorFile()->errorSize()->errorWHT()->createPicture();
+$picture = new UFile();
+$picture ->ErrorFile();
+$picture ->errorSize();
+$picture->errorType();
+$picture->errorWH();
+$picture->createPicture();
 ?>
 </body>
 </html>
