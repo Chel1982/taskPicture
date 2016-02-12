@@ -1,7 +1,7 @@
 <?php
 class UFile{
 
-    function ErrorFile(){
+    function ErrorFileU(){
         if($_FILES["userfile"]["error"] != UPLOAD_ERR_OK){
             switch($_FILES["userfile"]["error"]) {
                 case UPLOAD_ERR_FORM_SIZE:
