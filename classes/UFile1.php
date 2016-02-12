@@ -1,5 +1,5 @@
 <?php
-class UFile{
+class UFile1{
 
     function ErrorFile(){
         if ($_FILES["userfile"]["error"] != UPLOAD_ERR_OK) {
@@ -27,9 +27,10 @@ class UFile{
     }
 
     function sizeFile(){
-        $_FILES["userfile"]["size"] > 153600)
+        if($_FILES["userfile"]["size"] > 153600){
             echo "Загружаемый файл больше 150кБайт";
             exit;
+        }
     }
 
 
@@ -37,7 +38,7 @@ class UFile{
             echo "Не верный формат загружаемого рисунка";*/
 
         function errorWHT(){
-            $size = (list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"]))){
+            $size = (list($width, $height, $type, $attr) = getimagesize($_FILES["userfile"]["tmp_name"]));
                 switch ($size) {
                     case $width > 150:
                         echo "Ширина больше 150";
@@ -52,7 +53,7 @@ class UFile{
                         echo "Не верный формат загружаемого рисунка";
                         exit;
                 }
-            }
+
         }
 
         function createPicture(){
@@ -60,10 +61,4 @@ class UFile{
             echo "Тип загруженного файла: ".$_FILES["userfile"]["type"];
             move_uploaded_file($_FILES["userfile"]["tmp_name"],"C:/img/".$_FILES["userfile"]["name"]);
         }
-
-
-
-
-
-
 }
