@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 </form>
 <?php
 $picture = new UFile1();
-$picture ->ErrorFile()->sizeFile()->errorWHT()->createPicture();
+$picture ->ErrorFile()->errorSize()->errorWHT()->createPicture();
 ?>
 </body>
 </html>

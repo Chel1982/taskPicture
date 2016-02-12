@@ -26,7 +26,7 @@ class UFile1{
         }
     }
 
-    function sizeFile(){
+    function errorSize(){
         if($_FILES["userfile"]["size"] > 153600){
             echo "Загружаемый файл больше 150кБайт";
             exit;
