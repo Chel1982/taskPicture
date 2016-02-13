@@ -26,8 +26,8 @@ class UFile{
     }
     function errorSize(){
         if($_FILES["userfile"]["size"] > 153600){
-            echo "Загружаемый файл больше 150кБайт";
-            exit;
+            return "Загружаемый файл больше 150кБайт";
+
         }
     }
     function errorType(){
@@ -43,7 +43,7 @@ class UFile{
                 echo "Ширина больше 150";
                 exit;
             case $height > 150:
-                echo "Высота больше 150";
+                echo  "Высота больше 150";
                 exit;
         }
     }

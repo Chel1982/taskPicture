@@ -11,25 +11,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 ?>
 </pre>
 <!DOCTYPE html>
-<html lang="ru">
+<html  lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Загрузка файлов на сервер</title>
 </head>
 <body>
 <h2><p><b>Файл не должен превышать раземра в 150 кБайт, 150x150 px и быть формата  .jpg, .png</b></p></h2>
-<form action="upload.php" method="POST" enctype="multipart/form-data">
+<form action="form.php" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="MAX_FILE_SIZE" value="153600" />
     <input type="file" name="userfile"><br>
     <input type="submit" value="Загрузить">
 </form>
 <?php
-$picture = new UFile();
-$picture ->ErrorFile();
-$picture ->errorSize();
-$picture->errorType();
-$picture->errorWH();
-$picture->createPicture();
+$obj = new UFile;
+$obj -> ErrorFile();
+$obj -> errorSize();
+$obj -> errorType();
+$obj -> errorWH();
+$obj -> createPicture();
 ?>
 </body>
 </html>
