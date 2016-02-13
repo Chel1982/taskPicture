@@ -4,6 +4,7 @@ function __autoload ($class_name){
     include 'classes/'.$class_name.'.php';
 };
 
+
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     print_r($_FILES);
 }

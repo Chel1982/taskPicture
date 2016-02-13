@@ -32,8 +32,8 @@ class UFile{
     }
     function errorType(){
         if (($_FILES["userfile"]["type"] !== "image/png") and ($_FILES["userfile"]["type"] !== "image/jpeg")) {
-            echo "Не верный формат загружаемого рисунка";
-            exit;
+            return "Не верный формат загружаемого рисунка";
+
         }
     }
     function errorWH(){
